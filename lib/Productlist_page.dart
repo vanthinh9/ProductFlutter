@@ -11,11 +11,10 @@ class ProductlistPage extends StatelessWidget {
    ProductlistPage({super.key});
    List<String> Hashlist=[
     "All",
-    "Phụ kiện",
-    "Áo",
-    "Ba lô",
-    "Quần",
-    "Tivi",
+    "electronics",
+    "men's clothing",
+    "jewelery",
+    "women's clothing",
    ];
   var userNameController =TextEditingController();
   var _formKey = GlobalKey<FormState>();

@@ -18,7 +18,7 @@ var _formKey = GlobalKey<FormState>();
         child: Column(
           children: [
             Text("Đăng ký tài khoản"),
-            Image.asset("assets/CT1.jpg",width: 400,),
+            Image.asset("assets/CT1.jpg",width: 300,),
             TextFormField(
               controller: userNameController,
               decoration: InputDecoration(

@@ -17,7 +17,7 @@ var passController =TextEditingController();
         child: Column(
           children: [
             Text("Đăng nhập hệ thống"),
-            Image.asset("assets/AnhĐN.png",width: 400,),
+            Image.asset("assets/AnhĐN.png",width: 300,),
             TextFormField(
               controller: userNameController,
               decoration: InputDecoration(
