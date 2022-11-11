@@ -3,130 +3,128 @@ import 'package:test/ProducloginPage.dart';
 import 'package:test/login_page.dart';
 
 class ProducRegisterPage extends StatelessWidget {
-ProducRegisterPage({super.key});
-var userNameController =TextEditingController();
-var passController =TextEditingController();
-var emailController =TextEditingController();
-var sdtController =TextEditingController();
-var _formKey = GlobalKey<FormState>();
+  ProducRegisterPage({super.key});
+  var userNameController = TextEditingController();
+  var passController = TextEditingController();
+  var emailController = TextEditingController();
+  var sdtController = TextEditingController();
+  var _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-       child:Form( 
-        key: _formKey,
-        child: Column(
-          children: [
-            Text("Đăng ký tài khoản"),
-            Image.asset("assets/CT1.jpg",width: 300,),
-            TextFormField(
-              controller: userNameController,
-              decoration: InputDecoration(
-                label: Text("Tên đăng nhập"),
-                hintText: "vui lòng đăng nhập tên ",
-                border: new OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10)
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Text("Đăng ký tài khoản"),
+              Image.asset(
+                "assets/CT1.jpg",
+                width: 300,
+              ),
+              TextFormField(
+                controller: userNameController,
+                decoration: InputDecoration(
+                  label: Text("Tên đăng nhập"),
+                  hintText: "vui lòng đăng nhập tên ",
+                  border: new OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  prefixIcon: Icon(Icons.person),
                 ),
-                prefixIcon: Icon(Icons.person),
+                validator: (str) {
+                  if (str == null || str.isEmpty)
+                    return "Tên đăng nhập không được rỗng";
+                  return null;
+                },
               ),
-              validator:(str){
-                if(str == null|| str.isEmpty)
-                return "Tên đăng nhập không được rỗng";
-                return null;
-              } ,
-            ),
-            //tên đăng nhập
-            TextFormField(
-              controller: passController,
-              decoration: InputDecoration(
-                label: Text("Mật Khẩu"),
-                hintText:"Vui lòng nhập mật khẩu",
-                border: new OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10)
+              //tên đăng nhập
+              TextFormField(
+                controller: passController,
+                decoration: InputDecoration(
+                  label: Text("Mật Khẩu"),
+                  hintText: "Vui lòng nhập mật khẩu",
+                  border: new OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  prefixIcon: Icon(Icons.key),
                 ),
-                prefixIcon: Icon(Icons.key),  
+                validator: (str) {
+                  if (str == null || str.isEmpty)
+                    return "Tên Mật khẩu không được bỏ trống";
+                  return null;
+                },
               ),
-              validator: (str){
-                if(str == null|| str.isEmpty)
-                return "Tên Mật khẩu không được bỏ trống";
-                return null;
-              },
-            ),
-            //Mật khẩu
-            TextFormField(
-              controller: emailController,
-              decoration: InputDecoration(
-                label: Text("Email"),
-                hintText:"Vui lòng nhập Email",
-                border: new OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10)
+              //Mật khẩu
+              TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  label: Text("Email"),
+                  hintText: "Vui lòng nhập Email",
+                  border: new OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  prefixIcon: Icon(Icons.mail),
                 ),
-                prefixIcon: Icon(Icons.mail),  
+                validator: (str) {
+                  if (str == null || str.isEmpty)
+                    return "Không được bỏ trống email";
+                  return null;
+                },
               ),
-              validator: (str){
-                if(str == null|| str.isEmpty)
-                return "Không được bỏ trống email";
-                return null;
-              },
-            ),
-            //Email
-            TextFormField(
-              controller: sdtController,
-              decoration: InputDecoration(
-                label: Text("Số điện thoại"),
-                hintText:"Vui lòng nhập số điện thoại",
-                border: new OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10)
+              //Email
+              TextFormField(
+                controller: sdtController,
+                decoration: InputDecoration(
+                  label: Text("Số điện thoại"),
+                  hintText: "Vui lòng nhập số điện thoại",
+                  border: new OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  prefixIcon: Icon(Icons.phone),
                 ),
-                prefixIcon: Icon(Icons.phone),  
+                validator: (str) {
+                  if (str == null || str.isEmpty)
+                    return "không được bỏ trống số điện thoại";
+                  return null;
+                },
               ),
-              validator: (str){
-                if(str == null|| str.isEmpty)
-                return "không được bỏ trống số điện thoại";
-                return null;
-              },
-            ),
-            //sdt
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                child:  ElevatedButton( 
-                onPressed: () {
-                if(_formKey.currentState!.validate()){
-                var userName = userNameController.text;
-                var passwword = passController.text;
-                var email = emailController.text;
-                var sdt = sdtController.text;
-                print("Tên đăng nhập: ${userName}");
-                print("Mật khẩu: ${passwword}");
-                print("Email: ${email}");
-                print("SĐT: ${sdt}");
-                }else{
-                  print("Dữ liệu không xác định");
-                  
-                }
-              }, 
-              child:
-              Text("Đăng ký"),
-              ),
-            ),
-            Container(
-              child: ElevatedButton(
-              style: const ButtonStyle(
-                backgroundColor:
-                  MaterialStatePropertyAll<Color>(Colors.blue)),
-                  onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Producloginpage()),
-                      );
-                    },
-                    child: Text("Quay lại")), 
-            )
-              ],
-            )
-            /*ElevatedButton(
+              //sdt
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          var userName = userNameController.text;
+                          var passwword = passController.text;
+                          var email = emailController.text;
+                          var sdt = sdtController.text;
+                          print("Tên đăng nhập: ${userName}");
+                          print("Mật khẩu: ${passwword}");
+                          print("Email: ${email}");
+                          print("SĐT: ${sdt}");
+                        } else {
+                          print("Dữ liệu không xác định");
+                        }
+                      },
+                      child: Text("Đăng ký"),
+                    ),
+                  ),
+                  Container(
+                    child: ElevatedButton(
+                        style: const ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll<Color>(Colors.blue)),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Producloginpage()),
+                          );
+                        },
+                        child: Text("Quay lại")),
+                  )
+                ],
+              )
+              /*ElevatedButton(
               
               onPressed: () {
                 if(_formKey.currentState!.validate()){
@@ -161,9 +159,9 @@ var _formKey = GlobalKey<FormState>();
                     },
                     child: Text("Quay lại")),
               )*/
-          ],
+            ],
+          ),
         ),
-       ),
       ),
     );
   }
